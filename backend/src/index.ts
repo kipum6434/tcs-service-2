@@ -22,7 +22,7 @@ app.use('/api/auth',      authRoutes);
 app.use('/api/tickets',   ticketRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/users',     userRoutes);
-
+console.log('Routes registered: /api/auth, /api/tickets, /api/customers, /api/users');
 // ── Health check ───────────────────────────────────────────────────────
 app.get('/health', (_req, res) => res.json({ status: 'ok', ts: new Date() }));
 
