@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000' });
+const API = axios.create({ baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://tcs-service-production.up.railway.app' });
 
 API.interceptors.request.use((cfg) => {
   if (typeof window !== 'undefined') {
