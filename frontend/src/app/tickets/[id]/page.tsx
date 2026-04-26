@@ -319,11 +319,11 @@ export default function TicketDetailPage() {
               ))}
             </Card>
 
-            {ticket.waiting_reason && (
+            {(ticket as any).waiting_reason && (
               <Card className="p-4 bg-purple-50 border-purple-200">
                 <p className="text-xs font-semibold text-purple-700 mb-1">⏸ เหตุผลที่รอ</p>
-                <p className="text-sm text-purple-800">{ticket.waiting_reason}</p>
-                {ticket.waiting_eta && <p className="text-xs text-purple-600 mt-1">ETA: {ticket.waiting_eta}</p>}
+                <p className="text-sm text-purple-800">{(ticket as any).waiting_reason}</p>
+                {(ticket as any).waiting_eta && <p className="text-xs text-purple-600 mt-1">ETA: {(ticket as any).waiting_eta}</p>}
               </Card>
             )}
 
