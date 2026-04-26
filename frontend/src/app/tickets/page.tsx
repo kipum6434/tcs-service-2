@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ticketsApi, Ticket } from '@/lib/api';
@@ -11,7 +11,7 @@ import { format } from 'date-fns';
 const STATUSES = ['','new','assigned','in_progress','waiting','done','closed','cancelled'];
 const PRIORITIES = ['','low','medium','high','critical'];
 
-export default function TicketsPage() {
+function TicketsPage() {
   const searchParams = useSearchParams();
   const [tickets, setTickets]   = useState<Ticket[]>([]);
   const [total, setTotal]       = useState(0);
@@ -119,4 +119,6 @@ export default function TicketsPage() {
       </div>
     </AppLayout>
   );
+}export default function TicketsPageWrapper() {
+  return <Suspense><TicketsPage /></Suspense>;
 }
