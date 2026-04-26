@@ -92,7 +92,7 @@ export default function CustomersPage() {
               <Link key={c.id} href={`/customers/${c.id}`}>
                 <Card className="p-4 hover:shadow-md transition-shadow cursor-pointer">
                   <div className="font-semibold text-gray-800 mb-2">{c.name}</div>
-                  {c.company && <p className="text-xs text-gray-500 mb-2">{c.company}</p>}
+                  {(c as any).company && <p className="text-xs text-gray-500 mb-2">{(c as any).company}</p>}
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 text-sm text-gray-600">
                       <Phone size={12} className="text-gray-400" />{c.phone}
